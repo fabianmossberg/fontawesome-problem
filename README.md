@@ -60,3 +60,26 @@ const { faCamera } = pkg;
 ```
 
 
+## A different approach
+
+I get a similar problem when trying to use `icon`.
+
+```svelte
+//index.svelte
+<script>
+import { icon } from '@fortawesome/fontawesome-svg-core'
+import { faHome } from '@fortawesome/free-solid-svg-icons/faHome'
+</script>
+
+{@html icon(faHome).html}
+```
+
+```sh
+import { icon } from "@fortawesome/fontawesome-svg-core";
+         ^^^^
+SyntaxError: Named export 'icon' not found. The requested module '@fortawesome/fontawesome-svg-core' is a CommonJS module, which may not support all module.exports as named exports.
+CommonJS modules can always be imported via the default export, for example using:
+
+import pkg from '@fortawesome/fontawesome-svg-core';
+const { icon } = pkg;
+```
